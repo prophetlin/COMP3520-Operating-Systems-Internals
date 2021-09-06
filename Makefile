@@ -33,7 +33,7 @@ qemu-busybox: linux .inited
 	(cd build && qemu-system-x86_64 -kernel bzImage -initrd busybox_initramfs.cpio.gz -append "init=/bin/sh console=ttyS0" -nographic)
 
 qemu-busybox-debug: linux .inited
-	(cd build && qemu-system-x86_64 -kernel bzImage -initrd busybox_initramfs.cpio.gz -append "init=/bin/sh console=ttyS0" -nographic -s -S)
+	(cd build && qemu-system-x86_64 -kernel bzImage -initrd busybox_initramfs.cpio.gz -append "init=/bin/sh nokaslr console=ttyS0" -nographic -s -S)
 
 clean:
 	rm -rf $(BUILD)
