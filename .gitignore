@@ -1,4 +1,4 @@
 build/
 busybox-1.33.1/
 fedora34.qcow2
-.inited # Used to note that busybox has been built
+.inited

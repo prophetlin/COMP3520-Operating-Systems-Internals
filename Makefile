@@ -7,7 +7,7 @@ BUSYBOX := busybox-1.33.1
 BUILD := build
 BUSYBOX_INITRAMFS := $(BUILD)/busybox_initramfs
 
-all: qemu
+all: qemu-busybox
 
 init: busybox linux
 	touch .inited
@@ -37,3 +37,4 @@ qemu-busybox-debug: linux .inited
 
 clean:
 	rm -rf $(BUILD)
+	rm .inited
