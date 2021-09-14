@@ -7,6 +7,7 @@ RUN dnf -y update && dnf install -y\
 	e2fsprogs jfsutils reiserfs-utils xfsprogs squashfs-tools\
 	btrfs-progs pcmciautils quota ppp nfs-utils\
 	procps udev mcelog iptables openssl bc\
-	python-sphinx \
+	python-sphinx wget\
 	qemu libguestfs-tools-c tmux vim git zsh\
-	python3 bcc cpio strace ltrace glibc-static
+	python3 bcc cpio strace ltrace glibc-static\
+	dwarves
