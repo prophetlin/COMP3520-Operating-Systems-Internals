@@ -8,6 +8,6 @@ RUN dnf -y update && dnf install -y\
 	btrfs-progs pcmciautils quota ppp nfs-utils\
 	procps udev mcelog iptables openssl bc\
 	python-sphinx wget\
-	qemu libguestfs-tools-c tmux vim git zsh\
+	qemu gdb libguestfs-tools-c tmux vim git zsh\
 	python3 bcc cpio strace ltrace glibc-static\
-	dwarves
+	dwarves ncurses-devel

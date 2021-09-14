@@ -7,12 +7,14 @@ BUSYBOX := busybox-1.33.1
 BUILD := build
 BUSYBOX_INITRAMFS := $(BUILD)/busybox_initramfs
 
+.PHONY: clean initramfs qemu-busybox qemu-busybox-debug
+
 all: qemu-busybox
 
-init: busybox linux
+init: busybox initramfs linux
 	touch .inited
 
-busybox: init.sh
+busybox:
 	mkdir -p $(BUSYBOX_INITRAMFS)
 	mkdir -p $(BUSYBOX_INITRAMFS)/bin
 	mkdir -p $(BUSYBOX_INITRAMFS)/dev
@@ -20,9 +22,11 @@ busybox: init.sh
 	mkdir -p $(BUSYBOX_INITRAMFS)/proc
 	$(MAKE) -C $(BUSYBOX) CFLAGS=--static -j`nproc`
 	$(MAKE) -C $(BUSYBOX) CFLAGS=--static CONFIG_PREFIX=$(PWD)/$(BUSYBOX_INITRAMFS) install
+
+initramfs: init.sh
 	cp $^ $(BUSYBOX_INITRAMFS)/init
 	rm -rf $(BUSYBOX_INITRAMFS)/test_progs
-	cp -r test_progs $(BUSYBOX_INITRAMFS)/test_progs
+	cp -r test_progs/ $(BUSYBOX_INITRAMFS)/test_progs
 	(cd $(BUSYBOX_INITRAMFS) && `find . | cpio -o -H newc | gzip > ../busybox_initramfs.cpio.gz`)
 
 linux:
@@ -30,10 +34,10 @@ linux:
 	$(MAKE) -C $(LINUX)  -j`nproc`
 	mv $(LINUX)/arch/x86/boot/bzImage build
 
-qemu-busybox: linux .inited
+qemu-busybox: linux initramfs .inited
 	(cd build && qemu-system-x86_64 -kernel bzImage -initrd busybox_initramfs.cpio.gz -append "init=/bin/sh console=ttyS0" -nographic)
 
-qemu-busybox-debug: linux .inited
+qemu-busybox-debug: linux initramfs .inited
 	(cd build && qemu-system-x86_64 -kernel bzImage -initrd busybox_initramfs.cpio.gz -append "init=/bin/sh nokaslr console=ttyS0" -nographic -s -S)
 
 qemu-fed: fedora34.qcow2
