@@ -5,26 +5,26 @@
 
 const struct sched_class comp3520_sched_class;
 
+// TODO: Complete me
 static void enqueue_task_comp3520(struct rq *rq, struct task_struct *p,
 				  int flags)
 {
-	struct comp3520_rq *comp3520_rq = rq->comp3520;
+	struct comp3520_rq comp3520_rq = rq->comp3520;
 	struct sched_comp3520_entity *se = &p->comp3520_se;
-
 }
 
+// TODO: Complete me
 static void dequeue_task_comp3520(struct rq *rq, struct task_struct *p,
 				  int flags)
 {
 	struct comp3520_rq *comp3520_rq = &rq->comp3520;
 	struct sched_comp3520_entity *se = &p->comp3520_se;
-
 }
 
-static void yield_task_comp3520(struct rq *rq)
-{
-};
+// TODO: Complete me
+static void yield_task_comp3520(struct rq *rq){};
 
+// TODO: Complete me
 static bool yield_to_task_comp3520(struct rq *rq, struct task_struct *p)
 {
 	struct comp3520_rq *comp3520_rq;
@@ -33,6 +33,7 @@ static bool yield_to_task_comp3520(struct rq *rq, struct task_struct *p)
 	return false;
 }
 
+// TODO: Complete me
 static void check_preempt_curr_comp3520(struct rq *rq, struct task_struct *p,
 					int wake_flags)
 {
@@ -40,33 +41,40 @@ static void check_preempt_curr_comp3520(struct rq *rq, struct task_struct *p,
 	struct sched_comp3520_entity *se = &p->comp3520_se;
 }
 
+// TODO: Complete me
 struct task_struct *pick_next_task_comp3520(struct rq *rq)
 {
 	return NULL;
 }
 
+// TODO: Complete me
 static void put_prev_task_comp3520(struct rq *rq, struct task_struct *prev)
 {
 	struct comp3520_rq *comp3520_rq;
-	struct sched_comp3520_entity *se = &p->comp3520_se;
+	struct sched_comp3520_entity *se = &prev->comp3520_se;
 }
 
+// TODO: Complete me
 static void set_next_task_comp3520(struct rq *rq, struct task_struct *p,
 				   bool first)
 {
 	struct comp3520_rq *comp3520_rq;
 	struct sched_comp3520_entity *se = &p->comp3520_se;
 }
+
+// TODO: Complete me
 static void task_tick_comp3520(struct rq *rq, struct task_struct *curr,
 			       int queued)
 {
 }
 
+// TODO: Complete me
 static void task_fork_comp3520(struct task_struct *p)
 {
 	struct comp3520_rq *comp3520_rq;
 	struct sched_comp3520_entity *se = &p->comp3520_se;
 }
+// TODO: Complete me
 static void prio_changed_comp3520(struct rq *rq, struct task_struct *p,
 				  int oldprio)
 {
@@ -74,24 +82,28 @@ static void prio_changed_comp3520(struct rq *rq, struct task_struct *p,
 	struct sched_comp3520_entity *se = &p->comp3520_se;
 }
 
+// TODO: Complete me
 static void switched_from_comp3520(struct rq *rq, struct task_struct *p)
 {
 	struct comp3520_rq *comp3520_rq;
 	struct sched_comp3520_entity *se = &p->comp3520_se;
 }
 
+// TODO: Complete me
 static void switched_to_comp3520(struct rq *rq, struct task_struct *p)
 {
 	struct comp3520_rq *comp3520_rq;
 	struct sched_comp3520_entity *se = &p->comp3520_se;
 }
 
+// TODO: Complete me
 static unsigned int get_rr_interval_comp3520(struct rq *rq,
 					     struct task_struct *task)
 {
 	return 0;
 }
 
+// TODO: Complete me
 static void update_curr_comp3520(struct rq *rq)
 {
 }
@@ -138,11 +150,12 @@ const struct sched_class
 
 	};
 
+// TODO: Complete me
 void init_comp3520_rq(struct comp3520_rq *comp3520_rq)
 {
 	comp3520_rq->nr_running = 0;
 	comp3520_rq->curr = NULL;
-	INIT_LIST_HEAD(&comp3520_rq->entity_list);
+	// Don't forget to initialize the list comp3520 list
 }
 
 #ifdef CONFIG_SCHED_DEBUG
