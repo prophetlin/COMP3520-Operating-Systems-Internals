@@ -124,7 +124,7 @@
 	#+BEGIN_SRC shell
 	  cd /A1
 	  LIBGUESTFS_BACKEND=direct virt-builder fedora-34 --format qcow2\
-						--output fedora34.qcow2 --root-password "helloworld"
+						--output fedora34.qcow2 --root-password "password:helloworld"
    #+END_SRC
 
    This will result in a file called ~fedora34.qcow2~ to be created. This is essentially a virtual machine image containing it's own kernel and (virtual) disk space.
@@ -286,7 +286,7 @@
    the remote repository under your own account. The fourth adds the tutor repository as an additional
    remote repository, so that you can pull any changes made to the repository.
 
-   Once that's been done, add the unikeys ttho6664 and adha4640 as collaborators to your repository.
+   Once that's been done, add the unikeys, ttho6664 and adha4640, as collaborators to your repository.
    
    Your repository should have 3 branches: ~linux-cfs-sched~, ~round-robin~, ~main~.
    The latest commit to each branch before the due date, will be marked.
