@@ -1,7 +1,7 @@
 #! bin/sh
-
 echo "Running init"
 echo "Setting up ttys"
+
 # Creates tty
 mknod /dev/tty1 c 4 1
 mknod /dev/tty2 c 4 2
@@ -20,4 +20,3 @@ mount -t proc none /proc
 
 echo "Execing into a shell" 
 setsid cttyhack sh
-# exec sh
