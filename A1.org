@@ -175,24 +175,32 @@
 	 
 	 Make sure you've read "A complete guide to Linux process scheduling" as mentioned above.
 
-***** Scheduler Domains [0.5 mark]
-	  What is the point of scheduler domains in the linux kernel? How might you use it implement your own scheduler?  
+***** Scheduler Classes and Scheduling Policies  [0.5 mark]
+	  
+	  What is the point of scheduler classes like ~fair_sched_class~ and ~rt_sched_class~ in the linux kernel?
+	  How are they connected to scheduling policies?
+
+	  How might you scheduler classes to add or implement your own scheduler in the kernel?
 	 
 ***** Follow the Syscall [0.5 mark]
+	  
 	  Which functions in the kernel are responsible for dealing with the system calls fork/exec/exit?
 	  How do they tie into the scheduler as a whole? What functions are between the function that handles the system call
 	  to a process/task entering/exiting the scheduler run queue?
 	  
 ***** Key Data Structures [1.5 mark] 
+	  
 	  What are the important structs used involved in the scheduling process? What information is stored in them?
 	  How is that information used in the scheduling process? Make reference to structs used by the CFS scheduler.
 	  
 ***** CFS Prioritisation [1 mark]
+	  
 	  Explain how CFS tracks how long as task has run for and how that information is used in scheduling decisions.
+	  
 	  Make reference to fields of the relevant structs.
 	  
 *** Code [5 marks]
-	Taking what you've learnt answering the questions above, implement the ~comp3520~ scheduler domain.
+	Taking what you've learnt answering the questions above, implement the ~comp3520~ scheduler class.
 	You'll mainly be working inside the ~comp3520.c~ file in the ~kernel/sched~ directory. You may also want to
 	make some changes to ~comp3520_rq~ struct in ~kernel/sched/sched.h~, or ~comp3520_se~ in ~include/kernel/sched.h~. 
 
@@ -211,7 +219,8 @@
 *** Questions [5 marks]
 
 **** Design Decisions
-	 - Explain the design of your scheduler. Make reference to the structs, their fields and the functions in the scheduler domain.
+	 - Explain the design of your scheduler. Make reference to the structs, their fields and the functions
+	   used by the comp3520 scheduler class (Hint: look at the structs ~comp352_sched_class~, ~sched_comp3520_entity~)
 	 - How does this scheduler compare to your round robin scheduler?
 	   - How have you improved on round robin?
 	   - How do you know it's better? How did you test it? Be sure to explain the rationale behind your test suite.
